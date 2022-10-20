@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Contact.aspx.cs" Inherits="Contact" %>
+﻿<%@ Page Title="Students" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Contact.aspx.cs" Inherits="Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -21,7 +21,7 @@
                     <asp:BoundField DataField="Apellido1" HeaderText="Apellido1" SortExpression="Apellido1" />
                     <asp:BoundField DataField="Apellido2" HeaderText="Apellido2" SortExpression="Apellido2" />
                     <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" ApplyFormatInEditMode="True" />
-                    <asp:BoundField DataField="FechaIngreso" HeaderText="FechaIngreso" DataFormatString="{0:dd/MM/yyyy}" ApplyFormatInEditMode="true" />         
+                    <asp:BoundField DataField="FechaIngreso" HeaderText="FechaIngreso"  ApplyFormatInEditMode="true" />         
                     <asp:CommandField ShowInsertButton="True" />
                 </Fields>
             </asp:DetailsView>
@@ -34,7 +34,7 @@
                     <asp:Parameter Name="original_Apellido1" Type="String" />
                     <asp:Parameter Name="original_Apellido2" Type="String" />
                     <asp:Parameter DbType="Date" Name="original_FechaNacimiento" />
-                    <asp:Parameter DbType="Date" Name="original_FechaIngreso" Type="DateTime" />
+                    <asp:Parameter DbType="Date" Name="original_FechaIngreso"  />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="Identificacion" Type="String" />
@@ -42,7 +42,7 @@
                     <asp:Parameter Name="Apellido1" Type="String" />
                     <asp:Parameter Name="Apellido2" Type="String" />
                     <asp:Parameter DbType="Date" Name="FechaNacimiento" />
-                    <asp:Parameter DbType="Date" Name="FechaIngreso" Type="DateTime"/>
+                    <asp:Parameter DbType="Date" Name="FechaIngreso" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="Identificacion" Type="String" />
