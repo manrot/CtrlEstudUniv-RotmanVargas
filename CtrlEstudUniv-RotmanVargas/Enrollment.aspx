@@ -22,6 +22,9 @@
     </div>
     <div class="row" style="margin-top:15px">
         <div class="col-12">
+            <h2>Formulario de matricula</h2>
+        </div>
+        <div class="col-12" style="margin-top:15px">
             <asp:Label ID="Label2" runat="server" Text="Id estudiante: "></asp:Label>
             <asp:TextBox ID="Id_StudentInput" runat="server" ReadOnly="True" Enabled="False"></asp:TextBox>
        
@@ -33,7 +36,22 @@
             <asp:Label ID="Label4" style="margin-left:15px" runat="server" Text="Nombre: "></asp:Label>
             <asp:TextBox ID="Name_Student" runat="server" ReadOnly="True" Width="289px" Enabled="False"></asp:TextBox>
         </div>
+        <div class="col-12" style="margin-top:15px">
+            <asp:Label ID="Label5"  runat="server" Text="Seleccione un curso para matricular: "></asp:Label>
+            <asp:DropDownList ID="DropDownListCourses" style="margin-left:15px" runat="server" Enabled="False" Height="30px" Width="234px"></asp:DropDownList>
+            <asp:Button ID="AgregarCursoMatri" runat="server" Text="Agregar a la matricula" OnClick="AgregarCursoMatri_Click" Enabled="False" />
+        </div>
+         <div class="col-12" style="margin-top:15px">
+            <h4>Cursos que se matricularan</h4>
 
+             <asp:GridView ID="GridView1" runat="server" Visible="False" Width="698px">
+             </asp:GridView>
+        </div>
+        <div class="col-12" style="margin-top:15px">
+            <asp:Label ID="Label6" runat="server" Text="Total a pagar: " Visible="False"></asp:Label>
+            <asp:TextBox ID="MontoTotal" runat="server" style="margin-right:15px" Enabled="False" Visible="False"></asp:TextBox>
+            <asp:Button ID="Matricular" runat="server" Text="Matricular Cursos" Height="29px" OnClick="Matricular_Click" Width="215px" Visible="False" />
+        </div>
     </div>
    </div>
 </asp:Content>
