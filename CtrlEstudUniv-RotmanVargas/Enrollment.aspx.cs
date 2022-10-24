@@ -11,6 +11,7 @@ using System.Security.Principal;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Reflection;
 using System.Activities.Expressions;
+using System.Web.UI.HtmlControls;
 
 public partial class Enrollment : System.Web.UI.Page
 {
@@ -22,14 +23,13 @@ public partial class Enrollment : System.Web.UI.Page
     SqlDataReader dataReader;
     string arrayCourseSelected = "";
 
+
     DataTable tabla = new DataTable();
     // Variables para las columnas y las filas
     DataColumn column;
     DataRow row;
     protected void Page_Load(object sender, EventArgs e)
     {
-
-      
 
         column = new DataColumn();
         column.DataType = System.Type.GetType("System.Int32");
@@ -170,9 +170,10 @@ public partial class Enrollment : System.Web.UI.Page
         using (conection = new SqlConnection(conf))
         {
             conection.Open();
-            command = new SqlCommand("INSERT INTO Enrollment (Id_Student,Fecha, Total) OUTPUT INSERTED.Id VALUES (@IdStudent,@FechaEnroll, @Total)", conection);
+            command = new SqlCommand("INSERT INTO Enrollment (Id_Student,Fecha, Total, Cuatrimestre) OUTPUT INSERTED.Id VALUES (@IdStudent,@FechaEnroll, @Total, @Cuatri)", conection);
             command.Parameters.AddWithValue("@IdStudent", Id_StudentInput.Text);
             command.Parameters.AddWithValue("@Total", Convert.ToDouble(MontoTotal.Text));
+            command.Parameters.AddWithValue("@Cuatri", Cuatrimestres.SelectedValue);
             command.Parameters.AddWithValue("@FechaEnroll", DateTime.UtcNow.ToString("MM-dd-yyyy"));
 
 

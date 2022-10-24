@@ -39,11 +39,16 @@
         <div class="col-12" style="margin-top:15px">
             <asp:Label ID="Label5"  runat="server" Text="Seleccione un curso para matricular: "></asp:Label>
             <asp:DropDownList ID="DropDownListCourses" style="margin-left:15px" runat="server" Enabled="False" Height="30px" Width="234px"></asp:DropDownList>
+            <asp:Label ID="Label7"  runat="server" style="margin-left:10px" Text="Seleccione el cuatrimestre: "></asp:Label>
+            <asp:DropDownList ID="Cuatrimestres" style="margin-left:10px" runat="server" Height="30px" Width="153px">
+                <asp:ListItem Value="Primer Cuatrimestre">Primer Cuatrimestre</asp:ListItem>
+                <asp:ListItem Value="Segundo Cuatrimestre">Segundo Cuatrimestre</asp:ListItem>
+                <asp:ListItem Value="Tercer Cuatrimestre">Tercer Cuatrimestre</asp:ListItem>
+            </asp:DropDownList>
             <asp:Button ID="AgregarCursoMatri" runat="server" Text="Agregar a la matricula" OnClick="AgregarCursoMatri_Click" Enabled="False" />
         </div>
          <div class="col-12" style="margin-top:15px">
             <h4>Cursos que se matricularan</h4>
-
              <asp:GridView ID="GridView1" runat="server" Visible="False" Width="698px">
              </asp:GridView>
         </div>
@@ -52,6 +57,13 @@
             <asp:TextBox ID="MontoTotal" runat="server" style="margin-right:15px" Enabled="False" Visible="False"></asp:TextBox>
             <asp:Button ID="Matricular" runat="server" Text="Matricular Cursos" Height="29px" OnClick="Matricular_Click" Width="215px" Visible="False" />
         </div>
+        <div class="col-12" style="margin-top:15px">
+
+        </div>
+        <div class="col-12" style="margin-top:15px">
+            <asp:GridView ID="GridView2" runat="server"></asp:GridView>
+        </div>
+
     </div>
    </div>
 </asp:Content>

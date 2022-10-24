@@ -19,41 +19,10 @@ public partial class Reports : System.Web.UI.Page
     DataTable dataTable;
     SqlDataReader dataReader;
 
-    DataTable tabla = new DataTable();
-    // Variables para las columnas y las filas
-    DataColumn column;
-    DataRow row;
+   
     protected void Page_Load(object sender, EventArgs e)
     {
-        column = new DataColumn();
-        column.DataType = System.Type.GetType("System.Int32");
-        column.ColumnName = "IdCurso";
-        tabla.Columns.Add(column);
-
-        column = new DataColumn();
-        column.DataType = Type.GetType("System.String");
-        column.ColumnName = "NombreCurso";
-        tabla.Columns.Add(column);
-
-        column = new DataColumn();
-        column.DataType = Type.GetType("System.String");
-        column.ColumnName = "Identificacion";
-        tabla.Columns.Add(column);
-
-        column = new DataColumn();
-        column.DataType = Type.GetType("System.String");
-        column.ColumnName = "Nombre";
-        tabla.Columns.Add(column);
-
-        column = new DataColumn();
-        column.DataType = Type.GetType("System.String");
-        column.ColumnName = "Apellido1";
-        tabla.Columns.Add(column);
-
-        column = new DataColumn();
-        column.DataType = Type.GetType("System.String");
-        column.ColumnName = "Apellido2";
-        tabla.Columns.Add(column);
+        
     }
 
     protected void ChargeCourses_Click(object sender, EventArgs e)
@@ -85,6 +54,21 @@ public partial class Reports : System.Web.UI.Page
 
             String EnrollmentInserted = Convert.ToString(command.ExecuteScalar());
             TotalMatriculas.Text = EnrollmentInserted;
+
+            conection.Close();
+        }
+    }
+
+    protected void CargarTotalCuatri_Click(object sender, EventArgs e)
+    {
+        using (conection = new SqlConnection(conf))
+        {
+            conection.Open();
+
+            command = new SqlCommand("select sum(Total) from Enrollment where Cuatrimestre=@Cuatri", conection);
+            command.Parameters.AddWithValue("@Cuatri", Cuatrimestres.SelectedValue);
+            String TotalMatriculasCuatrivar = Convert.ToString(command.ExecuteScalar());
+            TotalMatriculasCuatri.Text = TotalMatriculasCuatrivar;
 
             conection.Close();
         }
