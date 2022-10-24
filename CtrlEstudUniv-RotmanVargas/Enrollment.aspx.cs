@@ -170,9 +170,13 @@ public partial class Enrollment : System.Web.UI.Page
         using (conection = new SqlConnection(conf))
         {
             conection.Open();
-            command = new SqlCommand("INSERT INTO Enrollment (Id_Student,Fecha) OUTPUT INSERTED.Id VALUES (@IdStudent,@FechaEnroll)", conection);
+            command = new SqlCommand("INSERT INTO Enrollment (Id_Student,Fecha, Total) OUTPUT INSERTED.Id VALUES (@IdStudent,@FechaEnroll, @Total)", conection);
             command.Parameters.AddWithValue("@IdStudent", Id_StudentInput.Text);
+            command.Parameters.AddWithValue("@Total", Convert.ToDouble(MontoTotal.Text));
             command.Parameters.AddWithValue("@FechaEnroll", DateTime.UtcNow.ToString("MM-dd-yyyy"));
+
+
+
 
             String EnrollmentInserted = Convert.ToString(command.ExecuteScalar());
             for (int fila = 0; fila < GridView1.Rows.Count; fila++)
