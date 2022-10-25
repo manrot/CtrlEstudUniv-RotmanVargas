@@ -51,7 +51,7 @@ public partial class Courses : System.Web.UI.Page
             using (conection = new SqlConnection(conf))
             {
                 conection.Open();
-                command = new SqlCommand("SELECT Courses.NombreEscuela, Courses.NombreCurso, Courses.Descripcion, Courses.Precio FROM Career INNER JOIN CoursesRelationCareer ON Career.Id = CoursesRelationCareer.IdCareer INNER JOIN Courses ON CoursesRelationCareer.IdCourse = Courses.Id WHERE (Career.Id = @IdCareerCon)", conection);
+                command = new SqlCommand("SELECT Courses.Id,Courses.NombreEscuela, Courses.NombreCurso, Courses.Descripcion, Courses.Precio FROM Career INNER JOIN CoursesRelationCareer ON Career.Id = CoursesRelationCareer.IdCareer INNER JOIN Courses ON CoursesRelationCareer.IdCourse = Courses.Id WHERE (Career.Id = @IdCareerCon)", conection);
                 command.Parameters.AddWithValue("@IdCareerCon", DropDownList3.SelectedValue);
                 adapter = new SqlDataAdapter(command);
                 dataTable = new DataTable();

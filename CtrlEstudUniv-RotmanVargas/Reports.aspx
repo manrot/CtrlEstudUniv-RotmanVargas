@@ -49,13 +49,13 @@
       <div class="col-12" style="margin-bottom:15px">
           <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Width="801px">
               <Columns>
-                  <asp:BoundField DataField="IdCourse" HeaderText="IdCourse" SortExpression="IdCourse" />
+                  <asp:BoundField DataField="IdCourse" HeaderText="IdCourse" SortExpression="IdCourse" />            
                   <asp:BoundField DataField="CantidadCourses" HeaderText="CantidadCourses" ReadOnly="True" SortExpression="CantidadCourses" />
                   <asp:BoundField DataField="TotalMatriculados" HeaderText="TotalMatriculados" ReadOnly="True" SortExpression="TotalMatriculados" />
                   <asp:BoundField DataField="Porcentaje" HeaderText="Porcentaje" ReadOnly="True" SortExpression="Porcentaje" />
               </Columns>
           </asp:GridView>
-          <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="select distinct IdCourse, COUNT(IdCourse) as CantidadCourses, (select count(IdCourse) from DetailsEnrollment) as TotalMatriculados  , CONVERT(FLOAT,COUNT(IdCourse)*100)/(select count(IdCourse) from DetailsEnrollment) as Porcentaje from DetailsEnrollment group by IdCourse
+          <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="select distinct IdCourse , COUNT(IdCourse) as CantidadCourses, (select count(IdCourse) from DetailsEnrollment) as TotalMatriculados  , CONVERT(FLOAT,COUNT(IdCourse)*100)/(select count(IdCourse) from DetailsEnrollment) as Porcentaje from DetailsEnrollment group by IdCourse
 "></asp:SqlDataSource>
     </div>
 </asp:Content>

@@ -59,6 +59,7 @@
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSourceCourses" Width="988px">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                    <asp:BoundField DataField="Id" HeaderText="Id curso" SortExpression="Id" />
                     <asp:BoundField DataField="NombreEscuela" HeaderText="Nombre de Escuela" SortExpression="NombreEscuela" />
                     <asp:BoundField DataField="NombreCurso" HeaderText="Nombre de Curso" SortExpression="NombreCurso" />
                     <asp:BoundField DataField="Descripcion" HeaderText="Descripción" SortExpression="Descripcion" />
